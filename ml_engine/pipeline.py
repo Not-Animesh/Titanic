@@ -20,7 +20,7 @@ from ml_engine.insights import generate_insights
 def run_pipeline(
     drop_feature_list: List[str],
     model_name: str,
-    history: List[Dict[str, Any]],
+    history: List[Dict[str, Any]] = None,
 ) -> Dict[str, Any]:
     """
     Execute the full ML pipeline end-to-end.
@@ -88,7 +88,7 @@ def run_pipeline(
         "n_features": n_features,
         "feature_importance": feature_importance,
     }
-    insights = generate_insights(current_run_meta, history)
+    insights = generate_insights(current_run_meta, history or [])
 
     return {
         "model_name": model_name,
