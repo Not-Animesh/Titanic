@@ -61,9 +61,13 @@ def compute_shap(
         explainer = shap.TreeExplainer(model)
         shap_output = explainer.shap_values(X_test)
 
-        # For binary classifiers, shap_values may be a list [class0, class1]
+        # For binary classifiers, shap_values may be:
+        #   - a list [class0_array, class1_array]  (older SHAP)
+        #   - a 3-D ndarray of shape (n_samples, n_features, n_classes)  (newer SHAP)
         if isinstance(shap_output, list):
             sv = shap_output[1]  # positive class
+        elif isinstance(shap_output, np.ndarray) and shap_output.ndim == 3:
+            sv = shap_output[:, :, 1]  # positive class
         else:
             sv = shap_output
     else:
