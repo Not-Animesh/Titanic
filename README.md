@@ -186,7 +186,7 @@ On top of the raw Titanic columns the pipeline creates four groups of derived fe
 Categorical encoding applied during preprocessing:
 - **Sex** → label-encoded (`male=1`, `female=0`)
 - **Embarked** → one-hot encoded (drop_first=True)
-- **Cabin** → dropped (>77 % missing)
+- **Cabin** → dropped (>77% missing)
 - **Name**, **Ticket** → dropped (high-cardinality text)
 
 ---

@@ -85,10 +85,10 @@ Having a fixed random seed (`random_state=42`) means every run with the same dat
 
 | Column | Strategy | Reason |
 |---|---|---|
-| `Age` | Fill with **median** | Robust to outliers; ~20 % of values are missing |
+| `Age` | Fill with **median** | Robust to outliers; ~20% of values are missing |
 | `Embarked` | Fill with **mode** (most common port) | Only 2 values missing |
 | `Fare` | Fill with **median** | Handles rare missing values robustly |
-| `Cabin` | **Drop the column** | >77 % missing — too sparse to be useful |
+| `Cabin` | **Drop the column** | >77% missing — too sparse to be useful |
 
 #### 2b. Encode Categorical Variables (`encode_categoricals`)
 
@@ -191,7 +191,7 @@ reduced_df = drop_features(engineered_df, drop_list=drop_feature_list)
 X_train, X_test, y_train, y_test = split_data(reduced_df, target="Survived")
 ```
 
-- **80 % training**, **20 % testing**.
+- **80% training**, **20% testing**.
 - `stratify=y` ensures both splits contain roughly the same proportion of survivors (~38 %).
 - `random_state=42` for reproducibility.
 

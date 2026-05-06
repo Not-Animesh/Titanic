@@ -83,13 +83,13 @@ A: The most important raw features are:
 
 **Q: What is the class distribution of the target variable?**
 
-A: Approximately **38 % survived** (342 out of 891), meaning the dataset is moderately imbalanced. We account for this by using stratified splitting and evaluating precision, recall, and F1-score — not just accuracy.
+A: Approximately **38% survived** (342 out of 891), meaning the dataset is moderately imbalanced. We account for this by using stratified splitting and evaluating precision, recall, and F1-score — not just accuracy.
 
 ---
 
 **Q: Why is the Cabin column dropped?**
 
-A: Because over **77 % of Cabin values are missing**. Imputing that many values would introduce more noise than signal. A column that is mostly absent cannot reliably help the model.
+A: Because over **77% of Cabin values are missing**. Imputing that many values would introduce more noise than signal. A column that is mostly absent cannot reliably help the model.
 
 ---
 
@@ -259,7 +259,7 @@ A perfect model has large TN and TP values and zeros on the off-diagonal.
 
 **Q: Why might high accuracy still be a bad model?**
 
-A: If the dataset is 90 % class-0, a model that always predicts class-0 achieves 90 % accuracy while never identifying a single positive case. On Titanic (38 % survivors), a "always predict dead" model would reach ~62 % accuracy — but recall for survivors would be 0. This is why we report precision, recall, and F1 alongside accuracy.
+A: If the dataset is 90% class-0, a model that always predicts class-0 achieves 90% accuracy while never identifying a single positive case. On Titanic (38% survivors), a "always predict dead" model would reach ~62% accuracy — but recall for survivors would be 0. This is why we report precision, recall, and F1 alongside accuracy.
 
 ---
 
@@ -369,7 +369,7 @@ A: **Bias** is error from wrong assumptions in the model (e.g., assuming lineari
 
 **Q: Why use stratified splitting?**
 
-A: Stratified splitting ensures that both the training and test sets contain the same proportion of the target classes (~38 % survived, ~62 % not survived). Without stratification, a random split could accidentally put most survivors in training and very few in the test set, making evaluation unreliable.
+A: Stratified splitting ensures that both the training and test sets contain the same proportion of the target classes (~38% survived, ~62% not survived). Without stratification, a random split could accidentally put most survivors in training and very few in the test set, making evaluation unreliable.
 
 ---
 
@@ -453,4 +453,4 @@ A: Several:
 - **Survivorship bias** — the dataset only contains passengers we have records of; data may not be complete.
 - **Proxies for protected attributes** — features like Pclass and Fare are proxies for wealth, and Sex is a protected attribute. A real-world deployment predicting outcomes based on gender or class would require careful fairness analysis.
 - **Historical harm** — the Titanic disaster was a real tragedy. Treating it as a pure ML benchmark without acknowledging the human cost can be insensitive.
-- **Overconfidence in predictions** — a model accuracy of 83 % means 17 % of predictions are still wrong. In life-or-death contexts, the consequences of false negatives and false positives must be carefully weighed.
+- **Overconfidence in predictions** — a model accuracy of 83% means 17% of predictions are still wrong. In life-or-death contexts, the consequences of false negatives and false positives must be carefully weighed.
